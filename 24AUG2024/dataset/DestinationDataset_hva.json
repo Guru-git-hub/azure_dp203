@@ -1,0 +1,20 @@
+{
+	"name": "DestinationDataset_hva",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "synapsebhnt6wi-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "sales_data_parquet",
+				"fileSystem": "files"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
