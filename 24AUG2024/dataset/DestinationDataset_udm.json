@@ -1,0 +1,20 @@
+{
+	"name": "DestinationDataset_udm",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "synapsebhnt6wi-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "sales",
+				"fileSystem": "files"
+			},
+			"compressionCodec": "none"
+		},
+		"schema": []
+	}
+}
