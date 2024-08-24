@@ -1,0 +1,17 @@
+{
+	"name": "External_table",
+	"properties": {
+		"content": {
+			"query": "CREATE EXTERNAL DATA SOURCE sales_data_DS\nWITH ( LOCATION = 'https://datalakebhnt6wi.dfs.core.windows.net/files/sales_data/',\n       TYPE = HADOOP)\n\nCREATE EXTERNAL FILE FORMAT sales_data_format\nWITH\n(  \n    FORMAT_TYPE = CSV,\n   -- DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'\n)\n\nCREATE EXTERNAL TABLE sales_data_ET\n(\n    decennialTime varchar(20),\n    stateName varchar(100),\n    countyName varchar(100),\n    population int,\n    race varchar(50),\n    sex    varchar(10),\n    minAge int,\n    maxAge int\n)  \nWITH (\n    LOCATION = '/files/sales_data/',\n    DATA_SOURCE = sales_data_DS,  \n    FILE_FORMAT = sales_data_format\n)\nGO\n\nSELECT TOP 1 * FROM sales_data_ET",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
